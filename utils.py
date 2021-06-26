@@ -1,5 +1,7 @@
-from browser import Browser
 
+from browser import Browser
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class Utils(Browser):
@@ -7,11 +9,14 @@ class Utils(Browser):
         self.driver.get(url)
 
     def clk_get(self):
-        self.driver.find_element_by_xpath('//*[@id="operations-user-getUserByName"]/div/span[1]').click()
+        element = self.wait.until(EC.element_to_be_clickable(
+            (By.XPATH, '//*[@id="operations-user-getUserByName"]/div/span[1]')))
+        element.click()
 
     def clk_try(self):
-        self.driver.find_element_by_xpath(
-            '//*[@id="operations-user-getUserByName"]/div[2]/div/div[1]/div[1]/div[2]/button').click()
+        element = self.wait.until(EC.element_to_be_clickable(
+            (By.XPATH, '//*[@id="operations-user-getUserByName"]/div[2]/div/div[1]/div[1]/div[2]/button')))
+        element.click()
 
     def preenche_nome(self, nome):
         self.driver.find_element_by_xpath(
@@ -19,4 +24,11 @@ class Utils(Browser):
             'tbody/tr/td[2]/input').send_keys(nome)
 
     def clk_execute(self):
-        self.driver.find_element_by_xpath('//*[@id="operations-user-getUserByName"]/div[2]/div/div[2]/button').click()
+        element = self.wait.until(EC.element_to_be_clickable(
+            (By.XPATH, '//*[@id="operations-user-getUserByName"]/div[2]/div/div[2]/button')))
+        element.click()
+
+    def resposta(self):
+        element = self.wait.until(EC.element_to_be_clickable((
+            By.XPATH, '//*[@id="operations-user-getUserByName"]/div[2]/div/div[3]/div[2]/div/div/div[2]/div/pre'))).text
+        return element
