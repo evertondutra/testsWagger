@@ -8,6 +8,11 @@
 Instalação na sua máquina:
 [Python3.9.5](https://www.python.org/).
 
+Baixar o Chromedriver da mesma versão do seu navegador Chrome, e deixa-lo na mesma pasta onde esta 
+<br>
+instalado o seu python.exe
+
+
 Python packages
 * selenium
 * nose
