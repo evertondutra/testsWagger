@@ -13,7 +13,8 @@ Python packages
 * nose
 * behave
 * Gherkin
-Para instalação acesse o terminal no Pycharm e digite pip install <nome do package>
+* 
+Para instalação acesse o terminal no Pycharm e digite pip install (nome do package)
 
 
 Além disto é bom ter um editor para trabalhar com o código como [PyCharm](https://www.jetbrains.com/pt-br/pycharm/download/#section=windows)
